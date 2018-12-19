@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "G:\\WorkSpace\\react-native\\reactNagation\\android\\app\\build\\intermediates\\res\\merged\\debug\\xml\\preferences.xml",
+        "source": "G:\\WorkSpace\\react-native\\reactNagation\\android\\app\\build\\intermediates\\exploded-aar\\com.facebook.react\\react-native\\0.50.3\\res\\xml\\preferences.xml"
+    },
+    {
+        "merged": "G:\\WorkSpace\\react-native\\demo\\react-native-master\\android\\app\\build\\intermediates\\res\\merged\\debug\\xml\\preferences.xml",
+        "source": "G:\\WorkSpace\\react-native\\demo\\react-native-master\\android\\app\\build\\intermediates\\exploded-aar\\com.facebook.react\\react-native\\0.50.3\\res\\xml\\preferences.xml"
+    },
+    {
+        "merged": "G:\\WorkSpace\\react\\react-navigation\\android\\app\\build\\intermediates\\res\\merged\\debug\\xml\\preferences.xml",
+        "source": "G:\\WorkSpace\\react\\react-navigation\\android\\app\\build\\intermediates\\exploded-aar\\com.facebook.react\\react-native\\0.50.3\\res\\xml\\preferences.xml"
+    },
+    {
+        "merged": "G:\\WorkSpace\\react-native\\native\\demo\\android\\app\\build\\intermediates\\res\\merged\\debug\\xml\\preferences.xml",
+        "source": "G:\\WorkSpace\\react-native\\native\\demo\\android\\app\\build\\intermediates\\exploded-aar\\com.facebook.react\\react-native\\0.50.3\\res\\xml\\preferences.xml"
+    },
+    {
+        "merged": "G:\\WorkSpace\\react-native\\demo\\react-tab\\native-tabs\\android\\app\\build\\intermediates\\res\\merged\\debug\\xml\\preferences.xml",
+        "source": "G:\\WorkSpace\\react-native\\demo\\react-tab\\native-tabs\\android\\app\\build\\intermediates\\exploded-aar\\com.facebook.react\\react-native\\0.50.3\\res\\xml\\preferences.xml"
+    },
+    {
+        "merged": "G:\\WorkSpace\\react-native\\react-navigation\\android\\app\\build\\intermediates\\res\\merged\\debug\\xml\\preferences.xml",
+        "source": "G:\\WorkSpace\\react-native\\react-navigation\\android\\app\\build\\intermediates\\exploded-aar\\com.facebook.react\\react-native\\0.50.3\\res\\xml\\preferences.xml"
+    }
+]
