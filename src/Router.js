@@ -117,11 +117,13 @@ const CustomDrawerContentComponent = props => {
             <View
                 style={{ backgroundColor: "white", height: height, width: width - 100 }}
             >
-                <ImageBackground source={require('./assets/images/sunflower.jpg')} style={{width:200,height:100}}>
-                    <View>
-                        <Text>boonook</Text>
-                    </View>
-                </ImageBackground>
+                <View style={{width:200,height:100,textAlign:'center',alignItems:'center',paddingTop:10}}>
+                    <Image
+                        style={{width: 66, height: 66, borderRadius: 33}}
+                        source={require('./assets/images/sunflower.jpg')}
+                    />
+                    <Text style={{textAlign:"center"}}>boonook</Text>
+                </View>
                 <TouchableOpacity
                     style={styles.btnStyle}
                     onPress={() => props.navigation.closeDrawer()}

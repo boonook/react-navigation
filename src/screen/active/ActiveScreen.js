@@ -47,6 +47,8 @@ export default class ActiveScreen extends Component {
     }
 }
 
+const theme = require("../../components/theme/Theme");
+debugger
 const styles = StyleSheet.create({
     input:{
         height:50,
@@ -74,7 +76,7 @@ const styles = StyleSheet.create({
     header: {
         height: 60,
         flexDirection: 'row',
-        backgroundColor: '#0187FB',
+        backgroundColor: theme.default.tabTopBackgroundColor,
         borderBottomWidth: 1,
         borderColor: '#ddd'
     },
