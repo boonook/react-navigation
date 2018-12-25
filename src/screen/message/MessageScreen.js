@@ -1,14 +1,17 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View,Button,StatusBar,TouchableOpacity,Image} from 'react-native';
+import MessageModal from "../../components/messageModal/MessageModal";
 export default class MessageScreen extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            state:false
+        };
+    }
     static navigationOptions = ({ navigation }) => {
         return {
             header: () => null, // 隐藏头部
         }
-    };
-    aaaa = () => {
-        // alert('1');
-        this.props.navigation.navigate('DrawerOpen');
     };
     render() {
         const {navigation} = this.props;
@@ -25,23 +28,33 @@ export default class MessageScreen extends Component {
                         <Text style={styles.title}>消息</Text>
                     </View>
                     <View style={styles.flex1}>
-                        <TouchableOpacity onPress={() => console.log(1231231)} style={{alignSelf:'flex-end',marginRight:10}}>
+                        <TouchableOpacity onPress={() => this.refs.son.setModalVisible(this.state.state)} style={{alignSelf:'flex-end',marginRight:10}}>
                             <Text style={styles.add}>+</Text>
                         </TouchableOpacity>
                     </View>
                 </View>
+               <View>
+                   <MessageModal ref="son"/>
+               </View>
+                <View>
+                    {
+                        this.state.state == false ?( null):(
+                            <Text>//部位空时想要显示的内容</Text>
+                        )
+                    }
+                </View>
                 <Button
-                    title='Go Back'
+                    title='控制显示与隐藏'
+                    onPress={()=>{
+                        this.setState({ state: !this.state.state });
+                    }}
+                />
+                <Button
+                    title='消息'
                     onPress={()=>{
                         navigation.goBack()
                     }}
                 />
-                {/*<Button*/}
-                    {/*title='跳转到page2'*/}
-                    {/*onPress={()=>{*/}
-                        {/*navigation.navigate('Page2');*/}
-                    {/*}}*/}
-                {/*/>*/}
             </View>
         );
     }

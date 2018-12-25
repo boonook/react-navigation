@@ -12,30 +12,29 @@ export default class MessageModal extends Component {
 
     render() {
         return (
-            <View style={{ marginTop: 22 }}>
-                <Modal
-                    animationType="slide"
-                    transparent={false}
-                    visible={this.state.modalVisible}
-                    onRequestClose={() => {
-                        alert("Modal has been closed.");
-                    }}
-                >
-                    <View style={{ marginTop: 22 }}>
-                        <View>
-                            <Text>Hello World!</Text>
+            <Modal
+                animationType="slide"
+                transparent={true}
+                visible={this.state.modalVisible}
+                style={{marginTop:80}}
+                onRequestClose={() => {
+                    this.setModalVisible(!this.state.modalVisible);
+                }}
+            >
+                <View style={{backgroundColor:'#fff',width: 150,height:300,marginTop:58,}}>
+                    <View>
+                        <Text>Hello World!</Text>
 
-                            <TouchableHighlight
-                                onPress={() => {
-                                    this.setModalVisible(!this.state.modalVisible);
-                                }}
-                            >
-                                <Text>Hide Modal</Text>
-                            </TouchableHighlight>
-                        </View>
+                        <TouchableHighlight
+                            onPress={() => {
+                                this.setModalVisible(!this.state.modalVisible);
+                            }}
+                        >
+                            <Text>Hide Modal</Text>
+                        </TouchableHighlight>
                     </View>
-                </Modal>
-            </View>
+                </View>
+            </Modal>
         );
     }
 }
