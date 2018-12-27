@@ -35,21 +35,26 @@ export default class MessageScreen extends Component {
                 </View>
                 {
                     this.state.state == false ?( null):(
-                        <View style={{width:100,height:260,backgroundColor:'#fff',position:'absolute',right:20,top:44,elevation: 99}}>
+                        <View style={{position:'absolute',right:20,top:44,elevation: 99}}>
                             <View
                                 style={{
                                     width: 0,
                                     height: 0,
                                     borderColor: 'transparent',
-                                    borderTopWidth: 7,
-                                    borderBottomWidth: 7,
-                                    borderRightWidth: 10,
-                                    borderRightColor: '#79bd9a'
+                                    borderLeftWidth: 7,
+                                    borderBottomWidth: 10,
+                                    borderRightWidth: 7,
+                                    borderBottomColor: '#fff',
+                                    marginLeft:80
                                 }}
                             />
-                            <View>
-                                <Text>//部位空时想要显示的内容</Text>
-                                <Text>//部位空时想要显示的内容</Text>
+                            <View style={{backgroundColor:'#fff',padding:4}}>
+                                <Text style={{paddingTop:5,paddingBottom:5,borderBottomWidth:1,borderBottomColor:'#eee'}}>创建群聊</Text>
+                                <Text style={{paddingTop:5,paddingBottom:5,borderBottomWidth:1,borderBottomColor:'#eee'}}>加好友/群</Text>
+                                <Text style={{paddingTop:5,paddingBottom:5,borderBottomWidth:1,borderBottomColor:'#eee'}}>扫一扫</Text>
+                                <Text style={{paddingTop:5,paddingBottom:5,borderBottomWidth:1,borderBottomColor:'#eee'}}>面对面快传</Text>
+                                <Text style={{paddingTop:5,paddingBottom:5,borderBottomWidth:1,borderBottomColor:'#eee'}}>付款</Text>
+                                <Text style={{paddingTop:5,paddingBottom:5}}>拍摄</Text>
                             </View>
                         </View>
                     )
