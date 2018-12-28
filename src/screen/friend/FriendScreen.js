@@ -26,8 +26,10 @@ export default class FriendScreen extends Component {
                         <Text style={styles.title}>联系人</Text>
                     </View>
                     <View style={styles.flex1}>
-                        <TouchableOpacity onPress={() => console.log(1231231)} style={{alignSelf:'flex-end',marginRight:10}}>
-                            <Text style={styles.add}>+</Text>
+                        <TouchableOpacity onPress={() =>{
+                            navigation.navigate('FriendAdd')
+                        }} style={{alignSelf:'flex-end',marginRight:10}}>
+                            <Text style={styles.add}>添加</Text>
                         </TouchableOpacity>
                     </View>
                 </View>
@@ -37,12 +39,6 @@ export default class FriendScreen extends Component {
                         navigation.goBack()
                     }}
                 />
-                {/*<Button*/}
-                    {/*title='跳转到page2'*/}
-                    {/*onPress={()=>{*/}
-                        {/*navigation.navigate('Page2');*/}
-                    {/*}}*/}
-                {/*/>*/}
             </View>
         );
     }
@@ -71,7 +67,7 @@ const styles = StyleSheet.create({
         color: '#fff'
     },
     add: {
-        fontSize: 30,
+        fontSize: 18,
         color: '#fff',
     }
 });

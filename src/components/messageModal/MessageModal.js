@@ -16,12 +16,11 @@ export default class MessageModal extends Component {
                 animationType="slide"
                 transparent={true}
                 visible={this.state.modalVisible}
-                style={{marginTop:80}}
                 onRequestClose={() => {
                     this.setModalVisible(!this.state.modalVisible);
                 }}
             >
-                <View style={{backgroundColor:'#fff',width: 150,height:300,marginTop:58,}}>
+                <View style={{backgroundColor:'#fff',flex:1}}>
                     <View>
                         <Text>Hello World!</Text>
 

@@ -11,8 +11,32 @@ import SettingScreen from "./components/setting/SettingScreen";
 import LoginScreen from "./screen/login/LoginScreen";
 import RegisterScreen from "./screen/register/RegisterScreen";
 import ForgetPasswordScreen from "./screen/forgetPassword/ForgetPasswordScreen";
+import FriendAdd from "./components/friendAdd/FriendAdd";
+import FindMen from "./components/friendAdd/FindMen";
+import FindGroup from "./components/friendAdd/FindGroup";
+import FindNoPublic from "./components/friendAdd/FindNoPublic";
 const { height, width } = Dimensions.get("window");
 
+const friendTabNavigator = TabNavigator({
+    FindMen:{
+        screen:FindMen,
+        navigationOptions: {
+            tabBarLabel: '找人', // 底部显示的文字
+        }
+    },
+    FindGroup:{
+        screen:FindGroup,
+        navigationOptions: {
+            tabBarLabel: '找群', // 底部显示的文字
+        }
+    },
+    FindNoPublic:{
+        screen:FindNoPublic,
+        navigationOptions: {
+            tabBarLabel: '找公众号', // 底部显示的文字
+        }
+    }
+})
 
 const appTabNavigator = TabNavigator({
     Message: {
@@ -166,6 +190,9 @@ const AppStackNavigator = StackNavigator({
     DrawerNav:{
         screen:DrawerNav,
     },
+    FriendAdd:{
+        screen:FriendAdd
+    }
 },{
     navigationOptions:{
         header:null//隐藏导航栏全局的
