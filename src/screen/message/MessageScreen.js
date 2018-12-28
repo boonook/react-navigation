@@ -35,7 +35,7 @@ export default class MessageScreen extends Component {
                 </View>
                 {
                     this.state.state == false ?( null):(
-                        <View style={{position:'absolute',right:20,top:44,elevation: 99}}>
+                        <View style={{position:'absolute',right:5,top:44,elevation: 99}}>
                             <View
                                 style={{
                                     width: 0,
