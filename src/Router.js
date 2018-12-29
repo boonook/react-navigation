@@ -192,6 +192,9 @@ const AppStackNavigator = StackNavigator({
     },
     FriendAdd:{
         screen:FriendAdd
+    },
+    addFriend:{
+        screen:friendTabNavigator
     }
 },{
     navigationOptions:{

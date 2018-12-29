@@ -27,7 +27,7 @@ export default class FriendScreen extends Component {
                     </View>
                     <View style={styles.flex1}>
                         <TouchableOpacity onPress={() =>{
-                            navigation.navigate('FriendAdd')
+                            navigation.navigate('addFriend')
                         }} style={{alignSelf:'flex-end',marginRight:10}}>
                             <Text style={styles.add}>添加</Text>
                         </TouchableOpacity>
