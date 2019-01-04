@@ -48,7 +48,6 @@ export default class ActiveScreen extends Component {
 }
 
 const theme = require("../../components/theme/Theme");
-debugger
 const styles = StyleSheet.create({
     input:{
         height:50,

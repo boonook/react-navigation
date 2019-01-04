@@ -7,14 +7,17 @@
     "test": "jest"
   },
   "dependencies": {
+    "antd-mobile-rn": "2.3.3",
     "mobx": "^5.1.2",
     "mobx-react": "^5.2.8",
     "react": "16.0.0",
     "react-native": "0.50.3",
+    "react-native-vector-icons": "^6.1.0",
     "react-navigation": "^2.16.0"
   },
   "devDependencies": {
     "babel-jest": "21.2.0",
+    "babel-plugin-import": "^1.11.0",
     "babel-preset-react-native": "4.0.0",
     "jest": "21.2.1",
     "react-test-renderer": "16.0.0"

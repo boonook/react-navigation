@@ -1,4 +1,3 @@
-
 import { StackNavigator ,TabNavigator,DrawerNavigator,SafeAreaView,DrawerItems} from 'react-navigation'
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View,Button,Image,ScrollView,Dimensions,TouchableOpacity,ImageBackground } from 'react-native';
@@ -12,31 +11,9 @@ import LoginScreen from "./screen/login/LoginScreen";
 import RegisterScreen from "./screen/register/RegisterScreen";
 import ForgetPasswordScreen from "./screen/forgetPassword/ForgetPasswordScreen";
 import FriendAdd from "./components/friendAdd/FriendAdd";
-import FindMen from "./components/friendAdd/FindMen";
-import FindGroup from "./components/friendAdd/FindGroup";
-import FindNoPublic from "./components/friendAdd/FindNoPublic";
+import MoneyScreen from "./components/money/MoneyScreen";
+import AlbumScreen from "./components/album/AlbumScreen";
 const { height, width } = Dimensions.get("window");
-
-const friendTabNavigator = TabNavigator({
-    FindMen:{
-        screen:FindMen,
-        navigationOptions: {
-            tabBarLabel: '找人', // 底部显示的文字
-        }
-    },
-    FindGroup:{
-        screen:FindGroup,
-        navigationOptions: {
-            tabBarLabel: '找群', // 底部显示的文字
-        }
-    },
-    FindNoPublic:{
-        screen:FindNoPublic,
-        navigationOptions: {
-            tabBarLabel: '找公众号', // 底部显示的文字
-        }
-    }
-})
 
 const appTabNavigator = TabNavigator({
     Message: {
@@ -121,7 +98,7 @@ const DrawerNav = DrawerNavigator({
         }
     },
     Money:{
-        screen:MessageScreen,
+        screen:MoneyScreen,
         navigationOptions: {
             drawerLabel:'Money',
             drawerIcon:({tintColor})=>(
@@ -129,6 +106,15 @@ const DrawerNav = DrawerNavigator({
             )
         }
     },
+    Album:{
+        screen:AlbumScreen,
+        navigationOptions: {
+            drawerLabel:'Money',
+            drawerIcon:({tintColor})=>(
+                <Image name={'drafts'} size={24} source={require('./assets/images/book.png')}  style={[styles.tabBarImage,{tintColor: tintColor}]}/>
+            )
+        }
+    }
 },{
     initialRouteName: 'Home',
     drawerWidth:  200, // 展示的宽度
@@ -159,6 +145,12 @@ const CustomDrawerContentComponent = props => {
                     onPress={() => props.navigation.navigate("Money")}
                 >
                     <Text>钱包</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                    style={styles.btnStyle}
+                    onPress={() => props.navigation.navigate("Album")}
+                >
+                    <Text>相册</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
                     style={styles.btnStyle}
@@ -193,9 +185,6 @@ const AppStackNavigator = StackNavigator({
     FriendAdd:{
         screen:FriendAdd
     },
-    addFriend:{
-        screen:friendTabNavigator
-    }
 },{
     navigationOptions:{
         header:null//隐藏导航栏全局的

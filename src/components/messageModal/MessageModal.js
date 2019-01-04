@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { Modal, Text, TouchableHighlight, View } from "react-native";
-
+import {Text, TouchableHighlight, View } from "react-native";
+import {Modal} from 'antd-mobile-rn';
 export default class MessageModal extends Component {
     state = {
         modalVisible: false
@@ -20,7 +20,7 @@ export default class MessageModal extends Component {
                     this.setModalVisible(!this.state.modalVisible);
                 }}
             >
-                <View style={{backgroundColor:'#fff',flex:1}}>
+                <View style={{flex:1}}>
                     <View>
                         <Text>Hello World!</Text>
 
