@@ -1,12 +1,14 @@
 import React,{Component} from 'react';
-import {
-    View,Text
-} from 'react-native'
+import {Provider} from 'mobx-react';
 import AppStackNavigator from "./Router";
-
+import store from './store';
 export default class App extends Component{
     render(){
-        return <AppStackNavigator></AppStackNavigator>
+        return (
+            <Provider {...store}>
+                <AppStackNavigator></AppStackNavigator>
+            </Provider>
+        )
     }
 }
 

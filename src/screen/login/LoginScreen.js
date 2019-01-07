@@ -1,7 +1,9 @@
 
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View,Button,StatusBar,TouchableOpacity,Image,ImageBackground,Dimensions,TextInput} from 'react-native';
+import {observer,inject} from 'mobx-react';
 import MessageModal from "../../components/messageModal/MessageModal";
+@inject('homeStore') @observer
 export default class LoginScreen extends Component {
     constructor(props) {
         super(props);
@@ -69,6 +71,9 @@ export default class LoginScreen extends Component {
                            {/*/>*/}
                        </View>
                         <View>
+                            <Text>状态管理器</Text>
+                            <Text>{this.props.homeStore.name}</Text>
+                            <Text>{this.props.homeStore.msg}</Text>
                             <MessageModal ref="son"/>
                         </View>
                     </View>
