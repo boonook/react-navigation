@@ -7,7 +7,7 @@ export default class LoginScreen extends Component {
         super(props);
         this.state = {
             userName: '',
-            password:''
+            password:'',
         };
     }
 

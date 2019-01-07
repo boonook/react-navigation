@@ -1,6 +1,3 @@
 {
-  "presets": ["react-native"],
-  "plugins": [
-    ["import", { "libraryName": "@ant-design/react-native" }]
-  ]
+  "presets": ["react-native"]
 }
