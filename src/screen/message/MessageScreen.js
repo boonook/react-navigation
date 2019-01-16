@@ -54,7 +54,9 @@ export default class MessageScreen extends Component {
                                 <Text style={{paddingTop:5,paddingBottom:5,borderBottomWidth:1,borderBottomColor:'#eee'}}>扫一扫</Text>
                                 <Text style={{paddingTop:5,paddingBottom:5,borderBottomWidth:1,borderBottomColor:'#eee'}}>面对面快传</Text>
                                 <Text style={{paddingTop:5,paddingBottom:5,borderBottomWidth:1,borderBottomColor:'#eee'}}>付款</Text>
-                                <Text style={{paddingTop:5,paddingBottom:5}}>拍摄</Text>
+                                <Text style={{paddingTop:5,paddingBottom:5}} onPress={()=>{
+                                    navigation.navigate('Camera')
+                                }}>拍摄</Text>
                             </View>
                         </View>
                     )

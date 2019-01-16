@@ -48,7 +48,7 @@ export default class FriendAdd extends React.Component{
                     </View>
                 </View>
                 <Tabs tabs={tabs}>
-                    <View style={style}>
+                    <View>
                         <InputItem
                             clear
                             value={this.state.value}
@@ -63,10 +63,10 @@ export default class FriendAdd extends React.Component{
                         <Grid data={data} columnNum={3} hasLine={false} activeStyle={false} />
                         <Text>Content of First Tab</Text>
                     </View>
-                    <View style={style}>
+                    <View>
                         <Text>Content of Second Tab</Text>
                     </View>
-                    <View style={style}>
+                    <View>
                         <Text>Content of Third Tab</Text>
                     </View>
                 </Tabs>

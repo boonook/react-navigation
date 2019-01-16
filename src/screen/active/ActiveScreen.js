@@ -1,9 +1,29 @@
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View,Button,TextInput,StatusBar,TouchableOpacity,Image} from 'react-native';
+import {Platform, StyleSheet, Text, View,Button,TextInput,StatusBar,TouchableOpacity,Image,ScrollView,CameraRoll,Dimensions} from 'react-native';
 
 type Props = {};
+const { height, width } = Dimensions.get("window");
 export default class ActiveScreen extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            photos:[]
+        };
+    };
+    _handleButtonPress = () => {
+        CameraRoll.getPhotos({
+            first: 20,
+            assetType: 'Photos',
+        })
+            .then(r => {
+                this.setState({ photos: r.edges });
+            })
+            .catch((err) => {
+                //Error Loading Images
+            });
+    };
+
     render() {
         const {navigation} = this.props;
         return (
@@ -24,24 +44,23 @@ export default class ActiveScreen extends Component {
                         </TouchableOpacity>
                     </View>
                 </View>
-                <Button
-                    title='Go Back'
-                    onPress={()=>{
-                        navigation.goBack()
-                    }}
-                />
-                <Button
-                    title='open Drawer'
-                    onPress={()=>{
-                        navigation.openDrawer();
-                    }}
-                />
-                <Button
-                    title='toggle Drawer'
-                    onPress={()=>{
-                        navigation.toggleDrawer();
-                    }}
-                />
+                <View>
+                    <Button title="加载本地图片" onPress={this._handleButtonPress} />
+                    <ScrollView style={{}}>
+                        {this.state.photos.map((p, i) => {
+                            return (
+                                <Image
+                                    key={i}
+                                    style={{
+                                        width: width/3,
+                                        height: 100,
+                                    }}
+                                    source={{ uri: p.node.image.uri }}
+                                />
+                            );
+                        })}
+                    </ScrollView>
+                </View>
             </View>
         );
     }

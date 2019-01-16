@@ -1,12 +1,27 @@
-
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View,Button,StatusBar,TouchableOpacity,Image} from 'react-native';
+import HttpUtils from '../../api/HttpUtils';//把封装好的组件导入
 
 type Props = {};
 export default class WatchScreen extends Component {
+    componentDidMount() {
+        this.fetchData();
+    };
     static navigationOptions = {
         header:null
     };
+    fetchData() {
+        let url = 'https://api.douban.com/v2/music/search';
+        let data ={
+            q:'李志',
+            p:'李志222'
+        };
+        HttpUtils.get(url,data).then(res=>{
+            debugger
+        }).catch(err=>{
+            debugger
+        })
+    }
     render() {
         const {navigation} = this.props;
         return (

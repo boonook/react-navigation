@@ -1,8 +1,9 @@
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View,Button,StatusBar,TouchableOpacity,Image,ImageBackground,Dimensions,TextInput} from 'react-native';
+import {Platform, StyleSheet, Text, View,Button,StatusBar,TouchableOpacity,Image,ImageBackground,Dimensions,TextInput,AsyncStorage} from 'react-native';
 import {observer,inject} from 'mobx-react';
 import MessageModal from "../../components/messageModal/MessageModal";
+import HttpUtils from '../../api/HttpUtils';//把封装好的组件导入
 @inject('homeStore') @observer
 export default class LoginScreen extends Component {
     constructor(props) {
@@ -10,6 +11,7 @@ export default class LoginScreen extends Component {
         this.state = {
             userName: '',
             password:'',
+            result:''
         };
     }
 
@@ -18,6 +20,56 @@ export default class LoginScreen extends Component {
             header: () => null, // 隐藏头部
         }
     };
+
+    //get数据
+    onLoad=(url)=>{
+        HttpUtils.get(url)//调用自定义组件方法，返回一个Promise
+            .then(result=>{//then函数会返回一个新的promise
+                this.setState({
+                    result:JSON.stringify(result),//序列化：转换为一个 (字符串)JSON字符串
+                });
+            })
+            .catch(error=> {
+                this.setState({
+                    result: JSON.stringify(error),//把错误信息格式化为字符串
+                })
+            })
+    };
+
+    setAsyncStorage=async() =>{
+        try {
+            await AsyncStorage.setItem('TASKS', 'I like to save it.');
+        } catch (error) {
+            // Error saving data
+        }
+    };
+
+    getAsyncStorage=async()=>{
+        try {
+            const value = await AsyncStorage.getItem('TASKS');
+            if (value !== null) {
+                // We have data!!
+                alert(value);
+            }
+        } catch (error) {
+            // Error retrieving data
+        }
+    };
+    clearAsyncStorage=async()=>{
+        try {
+            AsyncStorage.removeItem(
+                'TASKS',
+                (error)=>{
+                    if(!error){
+                        alert('移除成功');
+                    }
+                }
+            )
+        }catch (error){
+            alert('失败',+error);
+        }
+    };
+
     render() {
         const {navigation} = this.props;
         const {height,width} =  Dimensions.get('window');
@@ -62,6 +114,24 @@ export default class LoginScreen extends Component {
                                        navigation.navigate('Home');
                                    }}
                                />
+                               <Button
+                                   title='点击获取数据'
+                                   onPress={()=>this.onLoad('http://api.douban.com/v2/movie/top250')}
+                               />
+                               <View style={{marginTop:16}}>
+                                   <Button
+                                       title='设置AsyncStorage'
+                                       onPress={()=>this.setAsyncStorage()}
+                                   />
+                                   <Button
+                                       title='获取AsyncStorage'
+                                       onPress={()=>this.getAsyncStorage()}
+                                   />
+                                   <Button
+                                       title='清除AsyncStorage'
+                                       onPress={()=>this.clearAsyncStorage()}
+                                   />
+                               </View>
                            </View>
                            {/*<Button*/}
                                {/*title='展开'*/}
@@ -75,6 +145,7 @@ export default class LoginScreen extends Component {
                             <Text>{this.props.homeStore.name}</Text>
                             <Text>{this.props.homeStore.msg}</Text>
                             <MessageModal ref="son"/>
+                            <Text>返回结果：{this.state.result}</Text>
                         </View>
                     </View>
                 </ImageBackground>

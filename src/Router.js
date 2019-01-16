@@ -13,6 +13,7 @@ import ForgetPasswordScreen from "./screen/forgetPassword/ForgetPasswordScreen";
 import FriendAdd from "./components/friendAdd/FriendAdd";
 import MoneyScreen from "./components/money/MoneyScreen";
 import AlbumScreen from "./components/album/AlbumScreen";
+import Camera from "./components/camera/Camera";
 const { height, width } = Dimensions.get("window");
 
 const appTabNavigator = TabNavigator({
@@ -185,6 +186,9 @@ const AppStackNavigator = StackNavigator({
     FriendAdd:{
         screen:FriendAdd
     },
+    Camera:{
+        screen:Camera
+    }
 },{
     navigationOptions:{
         header:null//隐藏导航栏全局的
